@@ -17,8 +17,7 @@ class PepParsePipeline:
         if key:
             self.results[key] = self.results.get(key, 0) + 1
             return item
-        else:
-            raise DropItem(f'Отсутствует статус в {item}')
+        raise DropItem(f'Отсутствует статус в {item}')
 
     def close_spider(self, spider):
         total = sum(self.results.values())
